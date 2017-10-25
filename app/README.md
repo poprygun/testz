@@ -8,7 +8,7 @@ docker run -d -p 5000:5000 --restart=always --name registry registry:2
 
 ## Push app image to local registry
 ```bash
-mvn clean package
+mvn clean package -Pdocker
 
 mvn dockerfile:push
 ```

@@ -22,7 +22,7 @@ public class AppApplication {
     @RestController
     public class FunMathApi {
 
-        @GetMapping("quadratic")
+        @GetMapping(value = "quadratic", produces = "application/json")
         public ResponseEntity<RootsOfQuadraticEquation> roots(@RequestParam("a") int a
                 , @RequestParam("b") int b
                 , @RequestParam("c") int c) {
