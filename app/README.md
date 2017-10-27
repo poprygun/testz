@@ -18,7 +18,6 @@ mvn dockerfile:push
 `docker push localhost:5000/testz/app` corresponds to setting in pom.xml plugin
 
 
-
 docker pull localhost:5000/testz/app:0.0.1-SNAPSHOT
 
 ## Run app image

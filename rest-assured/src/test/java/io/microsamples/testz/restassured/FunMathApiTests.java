@@ -1,5 +1,6 @@
 package io.microsamples.testz.restassured;
 
+import io.microsamples.testz.app.AlgebraService;
 import io.microsamples.testz.app.AppApplication;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ public class FunMathApiTests {
     @Test
     public void should_calculate_roots_of_quadratic_equation(){
 
-        given().standaloneSetup(new AppApplication().new FunMathApi())
+        given().standaloneSetup(new AppApplication(). new FunMathApi(new AlgebraService()))
                 .params("a", 2, "b", 6, "c", 4)
                 .when()
                 .get("quadratic")

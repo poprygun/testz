@@ -13,8 +13,8 @@ public class RootsOfQuadraticEquationTests {
 
     @Test
     public void should_calculate_root() throws JsonProcessingException {
-        AppApplication.RootsOfQuadraticEquation rootsOfQuadraticEquation
-                = new AppApplication().new RootsOfQuadraticEquation(2, 6, 4);
+        RootsOfQuadraticEquation rootsOfQuadraticEquation
+                = new RootsOfQuadraticEquation(2, 6, 4);
 
         log.info(new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(rootsOfQuadraticEquation));
 
