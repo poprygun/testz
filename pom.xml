@@ -16,6 +16,7 @@
 		<module>rest-assured</module>
 		<module>hoverfly</module>
 		<module>boottestz</module>
+		<module>misc</module>
 	</modules>
 
 	<properties>
