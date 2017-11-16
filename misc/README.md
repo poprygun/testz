@@ -1,6 +1,6 @@
 ## MISC
 
-Demonstraits various testing techniques
+Demonstrates various testing techniques
 
 ### Use Random-Beans
 

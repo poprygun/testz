@@ -17,6 +17,7 @@
 		<module>hoverfly</module>
 		<module>boottestz</module>
 		<module>misc</module>
+		<module>jndifaker</module>
 	</modules>
 
 	<properties>

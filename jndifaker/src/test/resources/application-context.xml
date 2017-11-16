@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+    <bean id="jndiMock" class="io.microsamples.testz.faker.JndiContextMock" init-method="init" />
+
+    <jee:jndi-lookup id="myDataSource" jndi-name="jdbc/mydb"
+                     expected-type="io.microsamples.testz.faker.ImaginaryDataSource" />
+
+</beans>
