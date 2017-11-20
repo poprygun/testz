@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.jms.ConnectionFactory;
+
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
@@ -17,8 +19,12 @@ public class FakerAppTests {
     @Autowired
     private ImaginaryDataSource myDataSource;
 
+    @Autowired
+    private ConnectionFactory myConnectionFactory;
+
     @Test
     public void should_load_context_with_mocked_jndi(){
         assertNotNull(myDataSource);
+        assertNotNull(myConnectionFactory);
     }
 }

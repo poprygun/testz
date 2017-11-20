@@ -1,5 +1,6 @@
 package io.microsamples.testz.faker;
 
+import com.rabbitmq.jms.admin.RMQConnectionFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mock.jndi.SimpleNamingContextBuilder;
 
@@ -12,8 +13,7 @@ public class JndiContextMock {
         try {
             SimpleNamingContextBuilder builder = new SimpleNamingContextBuilder();
             builder.bind( "jdbc/mydb" , new ImaginaryDataSource() );
-//            builder.bind( "jdbc/mydb" , new ImaginaryDataSource() );
-//            builder.bind( "jdbc/mydb" , new ImaginaryDataSource() );
+            builder.bind("jms/myConnectionFacory", new RMQConnectionFactory());
             builder.activate();
         } catch (NamingException e) {
             String message = "Error activating DataSource";
