@@ -2,11 +2,13 @@ package io.microsamples.testz.faker;
 
 import com.rabbitmq.jms.admin.RMQConnectionFactory;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.mock.jndi.SimpleNamingContextBuilder;
 
 import javax.naming.NamingException;
 
 @Slf4j
+@Configuration
 public class JndiContextMock {
 
     public void init() {
