@@ -1,20 +1,14 @@
 package io.microsamples.testz.misc;
 
-
 import io.github.benas.randombeans.EnhancedRandomBuilder;
 import io.github.benas.randombeans.api.EnhancedRandom;
 import lombok.extern.slf4j.Slf4j;
 import name.falgout.jeffrey.testing.junit.mockito.MockitoExtension;
-import org.apache.commons.beanutils.BeanUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
-
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.hamcrest.Matchers;
 
-import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.Charset;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -30,16 +24,9 @@ public class BeansDataTests {
     @Mock
     private SomeService someService;
 
-    private EnhancedRandom random = EnhancedRandomBuilder.aNewEnhancedRandomBuilder()
-            .seed(123L)
-            .objectPoolSize(10)
-            .randomizationDepth(3)
-            .charset(Charset.forName("UTF-8"))
-            .stringLengthRange(5, 50)
-            .collectionSizeRange(1, 10)
-            .scanClasspathForConcreteTypes(false)
-            .overrideDefaultInitialization(false)
-            .build();
+    private EnhancedRandom random = EnhancedRandomBuilder.aNewEnhancedRandomBuilder().seed(123L).objectPoolSize(10)
+            .randomizationDepth(3).charset(Charset.forName("UTF-8")).stringLengthRange(5, 50).collectionSizeRange(1, 10)
+            .scanClasspathForConcreteTypes(false).overrideDefaultInitialization(false).build();
 
     @Test
     public void should_user_proper_parameter() {
@@ -53,7 +40,7 @@ public class BeansDataTests {
     }
 
     @Test
-    public void should_populate_beans_with_random_data(){
+    public void should_populate_beans_with_random_data() {
 
         DataSample hidrated = random.random(DataSample.class);
 
@@ -63,9 +50,4 @@ public class BeansDataTests {
         assertTrue(0 < hidrated.getFirstName().length());
 
     }
-
-
-
-
-
 }
