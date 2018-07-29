@@ -8,6 +8,10 @@ Collection of techniques used in testing of spring applications.
 
 [Spring Boot Tests Examples](boottestz/README.md)
 
+[Load Test Example](load/README.md)
+
+Load test is written in scala using [gatling](https://gatling.io/).
+
 ### App module 
 
 Demonstrates the use of docker file plugin to [containerize](app/README.md) the application

@@ -19,6 +19,7 @@
         <module>misc</module>
         <module>jndifaker</module>
         <module>messages</module>
+        <module>load</module>
     </modules>
 
     <properties>
