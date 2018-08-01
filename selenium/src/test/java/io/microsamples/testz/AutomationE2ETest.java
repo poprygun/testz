@@ -19,7 +19,7 @@ import java.io.InputStream;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
-class QuadraticUiTest {
+class AutomationE2ETest {
 
     private static ChromeDriverService service;
     private WebDriver driver;
