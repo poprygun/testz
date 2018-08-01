@@ -1,0 +1,15 @@
+---
+applications:
+- name: selenium-server
+  docker:
+    image: selenium/standalone-chrome:3.13.0-argon
+  instances: 1
+  memory: 768M
+  disk_quota: 128M
+  env:
+    PORT: 4444
+    EXPOSE: 4444
+
+
+docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.13.0-argon
+172.17.0.10
