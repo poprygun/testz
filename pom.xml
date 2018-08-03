@@ -20,6 +20,7 @@
         <module>jndifaker</module>
         <module>messages</module>
         <module>load</module>
+        <module>selenium</module>
     </modules>
 
     <properties>
