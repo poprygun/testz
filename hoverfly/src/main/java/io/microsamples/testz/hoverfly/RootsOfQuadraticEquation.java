@@ -6,9 +6,9 @@ import java.util.List;
 
 @Getter
 public class RootsOfQuadraticEquation {
-    private  int a;
-    private  int b;
-    private  int c;
+    private int a;
+    private int b;
+    private int c;
     private String fullForm;
     private List roots;
 }

@@ -20,39 +20,32 @@ import org.mockito.Mock;
 @ExtendWith(MockitoExtension.class)
 public class BeansDataTests {
 
-  @Mock private SomeService someService;
+    @Mock
+    private SomeService someService;
 
-  private EnhancedRandom random =
-      EnhancedRandomBuilder.aNewEnhancedRandomBuilder()
-          .seed(123L)
-          .objectPoolSize(10)
-          .randomizationDepth(3)
-          .charset(Charset.forName("UTF-8"))
-          .stringLengthRange(5, 50)
-          .collectionSizeRange(1, 10)
-          .scanClasspathForConcreteTypes(false)
-          .overrideDefaultInitialization(false)
-          .build();
+    private EnhancedRandom random = EnhancedRandomBuilder.aNewEnhancedRandomBuilder().seed(123L).objectPoolSize(10)
+            .randomizationDepth(3).charset(Charset.forName("UTF-8")).stringLengthRange(5, 50).collectionSizeRange(1, 10)
+            .scanClasspathForConcreteTypes(false).overrideDefaultInitialization(false).build();
 
-  @Test
-  public void should_user_proper_parameter() {
-    ArgumentCaptor<DataSample> captor = ArgumentCaptor.forClass(DataSample.class);
-    DataSample expected = random.random(DataSample.class);
+    @Test
+    public void should_user_proper_parameter() {
+        ArgumentCaptor<DataSample> captor = ArgumentCaptor.forClass(DataSample.class);
+        DataSample expected = random.random(DataSample.class);
 
-    someService.executeMe(expected);
+        someService.executeMe(expected);
 
-    verify(someService).executeMe(captor.capture());
-    assertThat(captor.getValue(), samePropertyValuesAs(expected));
-  }
+        verify(someService).executeMe(captor.capture());
+        assertThat(captor.getValue(), samePropertyValuesAs(expected));
+    }
 
-  @Test
-  public void should_populate_beans_with_random_data() {
+    @Test
+    public void should_populate_beans_with_random_data() {
 
-    DataSample hidrated = random.random(DataSample.class);
+        DataSample hidrated = random.random(DataSample.class);
 
-    log.info(hidrated.toString());
-    assertNotNull(hidrated);
-    assertNotNull(hidrated.getAddress());
-    assertTrue(0 < hidrated.getFirstName().length());
-  }
+        log.info(hidrated.toString());
+        assertNotNull(hidrated);
+        assertNotNull(hidrated.getAddress());
+        assertTrue(0 < hidrated.getFirstName().length());
+    }
 }

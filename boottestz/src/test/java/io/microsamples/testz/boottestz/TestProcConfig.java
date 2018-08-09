@@ -8,10 +8,8 @@ import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @TestConfiguration
-@PropertySources({
-        @PropertySource("classpath:application-test.yml")
-})
-@Import({MathConfiguration.class})
+@PropertySources({ @PropertySource("classpath:application-test.yml") })
+@Import({ MathConfiguration.class })
 public class TestProcConfig {
 
     @Bean
@@ -19,4 +17,3 @@ public class TestProcConfig {
         return new PropertySourcesPlaceholderConfigurer();
     }
 }
-

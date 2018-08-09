@@ -8,7 +8,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class DataSample {
-  private String firstName;
-  private String lastName;
-  private Address address;
+    private String firstName;
+    private String lastName;
+    private Address address;
 }

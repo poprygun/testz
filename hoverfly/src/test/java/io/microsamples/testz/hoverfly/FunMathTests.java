@@ -1,6 +1,5 @@
 package io.microsamples.testz.hoverfly;
 
-
 import io.specto.hoverfly.junit.rule.HoverflyRule;
 import org.junit.ClassRule;
 import org.junit.FixMethodOrder;
@@ -21,49 +20,34 @@ import static io.specto.hoverfly.junit.dsl.ResponseCreators.success;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItemInArray;
 
-
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {HoverflyApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(classes = { HoverflyApplication.class }, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class FunMathTests {
 
     @Autowired
     TestRestTemplate template;
 
-
     // Capture and output HTTP traffic to json file
-//    @ClassRule
-//    public static HoverflyRule hoverflyRule = HoverflyRule.inCaptureMode("roots.json");
+    // @ClassRule
+    // public static HoverflyRule hoverflyRule = HoverflyRule.inCaptureMode("roots.json");
 
     @ClassRule
-    public static HoverflyRule hoverflyRule = HoverflyRule
-            .inSimulationMode(
-                    dsl(
-                            service("io.microsamples")
-                                    .get("/quadratic")
-                                    .queryParam("a", 2)
-                                    .queryParam("b", 6)
-                                    .queryParam("c", 4)
-                                    .willReturn(success("{\"a\":2,\"b\":6,\"c\":4,\"fullForm\":\"2x² + 6x + 4 = 0\",\"roots\":[-1.0,-2.0]}"
-                                            , "application/json"))
-                    ))
+    public static HoverflyRule hoverflyRule = HoverflyRule.inSimulationMode(dsl(service("io.microsamples")
+            .get("/quadratic").queryParam("a", 2).queryParam("b", 6).queryParam("c", 4)
+            .willReturn(success("{\"a\":2,\"b\":6,\"c\":4,\"fullForm\":\"2x² + 6x + 4 = 0\",\"roots\":[-1.0,-2.0]}",
+                    "application/json"))))
             .printSimulationData();
 
     @Test
     public void should_calculate_roots_of_quadratic_equation() throws Exception {
 
-        URI uri = UriComponentsBuilder.fromHttpUrl("http://io.microsamples")
-                .path("/quadratic")
-                .queryParam("a", 2)
-                .queryParam("b", 6)
-                .queryParam("c", 4)
-                .build()
-                .toUri();
-
+        URI uri = UriComponentsBuilder.fromHttpUrl("http://io.microsamples").path("/quadratic").queryParam("a", 2)
+                .queryParam("b", 6).queryParam("c", 4).build().toUri();
 
         RootsOfQuadraticEquation forObject = template.getForObject(uri, RootsOfQuadraticEquation.class);
 
-        double[] expected = {-1.0d, -2.0d};
+        double[] expected = { -1.0d, -2.0d };
         Object[] actual = forObject.getRoots().toArray();
 
         for (double v : expected) {
@@ -71,6 +55,5 @@ public class FunMathTests {
 
         }
     }
-
 
 }

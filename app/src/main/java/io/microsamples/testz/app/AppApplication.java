@@ -25,9 +25,8 @@ public class AppApplication {
         }
 
         @GetMapping(value = "quadratic", produces = "application/json")
-        public ResponseEntity<RootsOfQuadraticEquation> roots(@RequestParam("a") int a
-                , @RequestParam("b") int b
-                , @RequestParam("c") int c) {
+        public ResponseEntity<RootsOfQuadraticEquation> roots(@RequestParam("a") int a, @RequestParam("b") int b,
+                @RequestParam("c") int c) {
 
             return new ResponseEntity<>(new RootsOfQuadraticEquation(a, b, c), HttpStatus.OK);
         }

@@ -12,7 +12,7 @@ import javax.jms.ConnectionFactory;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(locations = {"classpath:/application-context.xml"})
+@ContextConfiguration(locations = { "classpath:/application-context.xml" })
 @Slf4j
 public class FakerAppTests {
 
@@ -23,7 +23,7 @@ public class FakerAppTests {
     private ConnectionFactory myConnectionFactory;
 
     @Test
-    public void should_load_context_with_mocked_jndi(){
+    public void should_load_context_with_mocked_jndi() {
         assertNotNull(myDataSource);
         assertNotNull(myConnectionFactory);
     }

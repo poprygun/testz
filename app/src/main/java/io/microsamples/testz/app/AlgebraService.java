@@ -1,6 +1,5 @@
 package io.microsamples.testz.app;
 
-
 import org.springframework.stereotype.Service;
 
 @Service

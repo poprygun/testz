@@ -19,12 +19,8 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = {
-        TestProcConfig.class
-        , AlgebraService.class
-})
+@ContextConfiguration(classes = { TestProcConfig.class, AlgebraService.class })
 public class FunMathApiTests {
 
     private AppApplication.FunMathApi funMathApi;
@@ -48,16 +44,10 @@ public class FunMathApiTests {
     public void should_calculate_roots_of_quadratic_equation() throws Exception {
 
         mvc.perform(
-                get("/quadratic")
-                        .param("a", "2")
-                        .param("b", "6")
-                        .param("c", "4")
-                        .accept(MediaType.APPLICATION_JSON))
+                get("/quadratic").param("a", "2").param("b", "6").param("c", "4").accept(MediaType.APPLICATION_JSON))
 
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(jsonPath("fullForm", equalTo("2x² + 6x + 4 = 0")))
-                .andReturn().getResponse();
+                .andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(jsonPath("fullForm", equalTo("2x² + 6x + 4 = 0"))).andReturn().getResponse();
 
     }
 }
