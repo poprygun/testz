@@ -15,3 +15,5 @@ Load test is written in scala using [gatling](https://gatling.io/).
 ### App module 
 
 Demonstrates the use of docker file plugin to [containerize](app/README.md) the application
+
+Run mvn site:site to generate code analysis reports.
