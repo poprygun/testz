@@ -111,6 +111,20 @@
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-project-info-reports-plugin</artifactId>
                             <version>${maven.project.info.reports.plugin}</version>
+                            <reportSets>
+                                <reportSet>
+                                    <reports>
+                                        <report>dependency-management</report>
+                                        <!--<report>dependencies</report>-->
+                                        <!--<report>team</report>-->
+                                        <!--<report>mailing-lists</report>-->
+                                        <!--<report>ci-management</report>-->
+                                        <!--<report>issue-management</report>-->
+                                        <!--<report>licenses</report>-->
+                                        <!--<report>scm</report>-->
+                                    </reports>
+                                </reportSet>
+                            </reportSets>
                         </plugin>
                         <plugin>
                             <groupId>org.jacoco</groupId>
