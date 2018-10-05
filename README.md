@@ -16,4 +16,8 @@ Load test is written in scala using [gatling](https://gatling.io/).
 
 Demonstrates the use of docker file plugin to [containerize](app/README.md) the application
 
-Run mvn site:site to generate code analysis reports.
+### Static Code Analysis
+
+`app` module is used to generate reports.
+
+From `app/` directory, run `mvn site:site` to generate code analysis reports.  Reports will be available from `target/site/index.html`
