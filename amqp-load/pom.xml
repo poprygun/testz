@@ -49,10 +49,10 @@
                         <configuration>
                             <mainClass>com.rabbitmq.perf.PerfTestMulti</mainClass>
                             <arguments>
-                                <!--<argument>${project.build.resources[0].directory}/load-spec.js</argument>-->
-                                <!--<argument>${project.build.directory}/site/rabbit-stress/reports/load-spec.out.js</argument>-->
-                                <argument>${project.build.resources[0].directory}/various-spec.js</argument>
-                                <argument>${project.build.directory}/site/rabbit-stress/reports/various-spec.out.js</argument>
+                                <argument>${project.build.resources[0].directory}/load-spec.js</argument>
+                                <argument>${project.basedir}/src/site/resources/rabbit-stress/load-spec-out.js</argument>
+                                <!--<argument>${project.build.resources[0].directory}/various-spec.js</argument>-->
+                                <!--<argument>${project.build.directory}/site/site-webapp/abbit-stress/various-spec.out.txt</argument>-->
                             </arguments>
                         </configuration>
                     </execution>
