@@ -19,7 +19,7 @@
                     render_graphs(JSON.parse(data));
                 },
                 fail: function () {
-                    alert('error loading load-spec-out.txt');
+                    alert('error loading load-spec-out.js');
                 }
             });
         });
@@ -29,12 +29,12 @@
 <body>
     <h1>RabbitMQ Performance Example</h1>
 
-    <h3>15 Consumers, 2 Producers</h3>
+    <h3>15 Consumers, 3 Producers</h3>
     <div class="summary" data-scenario="consume"></div>
     <div class="chart" data-type="time" data-latency="true" data-x-axis="time (s)" data-y-axis="rate (msg/s)"
         data-y-axis2="latency (μs)" data-scenario="consume"></div>
 
-    <h3>2 Consumers, 15 Producers</h3>
+    <h3>3 Consumers, 15 Producers</h3>
     <div class="summary" data-scenario="produce"></div>
     <div class="chart" data-type="time" data-latency="true" data-x-axis="time (s)" data-y-axis="rate (msg/s)"
         data-y-axis2="latency (μs)" data-scenario="produce"></div>
